@@ -3,8 +3,15 @@ import React, { useContext } from 'react';
 import SignInLottie from '../assets/loties/signIn1741145092295 (1).json'
 import AuthContext from '../context/AuthContext';
 import { Result } from 'postcss';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+  const location=useLocation();
+  const navigate=useNavigate();
+  console.log('sign in location here',location);
+  const from=location.state || '/';
+
+
     const {signInUser}=useContext(AuthContext);
     const handleSignIn=(e)=>{
         e.preventDefault();
@@ -16,6 +23,7 @@ const SignIn = () => {
         signInUser(email, password)
         .then(result=>{
             console.log(result.user)
+            navigate(from);
         })
         .catch(error=>{
             console.log(error.message)
@@ -39,7 +47,7 @@ const SignIn = () => {
           <label className="fieldset-label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <Link className='btn btn-neutral mt-4' to='/'><button className=" ">Login</button></Link>
         </fieldset>
       </div>
     </div>

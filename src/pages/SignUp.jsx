@@ -4,6 +4,7 @@ import signUpLotiData from '../assets/loties/Sign up - 1740911583035 (1).json'
 import AuthContext from '../context/AuthContext';
 import { Result } from 'postcss';
 import GoogleLogIn from './shared/GoogleLogIn';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const SignUp = () => {
 
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-block">Sign Up</button>
+             <Link to='/'> <button className="btn btn-block">Sign Up</button></Link>
             </div>
           </form>
         </div>
@@ -59,7 +60,7 @@ const SignUp = () => {
       </div>
       <div>
       <div className="divider">OR</div>
-     <div className='text-center p-3 '> <GoogleLogIn></GoogleLogIn></div>
+     <Link to='/'><div className='text-center p-3 '> <GoogleLogIn></GoogleLogIn></div></Link>
       </div>
  
     </div>
